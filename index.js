@@ -1,4 +1,4 @@
-import sayHello from "https://clouduser98.github.io/luis-escobedo/modules/hello.js"
+import sayHello from "hello"
 
 console.log("luis esteban website");
 sayHello()
