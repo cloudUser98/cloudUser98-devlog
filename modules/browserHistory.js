@@ -1,5 +1,4 @@
 export default function logHistory() {
-    let url = `${window.location.href}/new`
-    console.log(window.history)
+    let url = `${window.location.hostname}/curriculum`
     window.history.pushState({}, "", url)
 }
