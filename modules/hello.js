@@ -1,3 +1,3 @@
-export default function sayHello() {
+export function sayHello() {
     console.log("HELLOOOOOOO")
 }
