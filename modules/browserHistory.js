@@ -1,6 +1,5 @@
 export default function logHistory() {
-    let actual = window.location.href
-    actual += "/new";
+    let url = `${window.location.href}/new`
     console.log(window.history)
-    window.history.pushState({}, "", actual)
+    window.history.pushState({}, "", url)
 }
