@@ -1,7 +1,6 @@
 import logHistory from "history"
 import project_euler from "project_euler"
 
-console.log("AAAAAAAAAAAAAAAAAAAAAAAAAA");
 const button = document.getElementById("getHistory")
 
 const paths = window.location.pathname.split("/")
@@ -12,7 +11,8 @@ const router = {
     "project_euler": project_euler
 };
 
-if (last_path != "luis-escobedo") 
+console.log("AAAAAAAAAAAAAAAAAAAAAAAAAA", last_path);
+if (last_path in router) 
     logHistory(last_path, project_euler[last_path]);
 
 button.addEventListener("click", () => logHistory("project_euler", project_euler))
