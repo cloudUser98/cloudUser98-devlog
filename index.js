@@ -5,6 +5,7 @@ console.log("AAAAAAAAAAAAAAAAAAAAAAAAAA");
 const button = document.getElementById("getHistory")
 
 const paths = window.location.pathname.split("/")
+filtered_paths = paths.filter(path => path)
 const last_path = paths.pop()
 
 const router = {
