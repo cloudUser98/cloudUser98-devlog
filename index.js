@@ -13,6 +13,6 @@ const router = {
 
 console.log("AAAAAAAAAAAAAAAAAAAAAAAAAA", last_path);
 if (last_path in router) 
-    logHistory(last_path, project_euler[last_path]);
+    logHistory(last_path, router[last_path]);
 
 button.addEventListener("click", () => logHistory("project_euler", project_euler))
