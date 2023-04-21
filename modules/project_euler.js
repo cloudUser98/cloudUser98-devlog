@@ -6,7 +6,7 @@ export default function project_euler() {
     root.innerHTML = ""
 
     // Creating the new elemenets for the document
-    const header = document.createElement("H1");
+    const header = document.createElement("h1");
     const body = document.createElement("div");
     const text = document.createElement("p");
 
