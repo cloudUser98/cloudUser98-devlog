@@ -1,12 +1,8 @@
-export default function logHistory() {
-    window.history.pushState({}, "", "/curriculum");
-    const root = document.getElementById("root");
-    const curriculum = document.createElement("p");
+export default function logHistory(url, page) {
 
-    console.log(root)
-    console.log(curriculum)
-
-    //curriculum.innerHTML("Mi curriculum");
-
-    root.appendChild(curriculum);
+    // Change of the browsers url without reloading the page
+    window.history.pushState({}, "", url);
+    
+    // Executing the method that renders the page
+    page()
 }
