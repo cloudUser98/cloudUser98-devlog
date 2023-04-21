@@ -17,7 +17,7 @@ const router = {
                 document.getElementById("root").innerHTML = html;
             })
     },
-    "/": this.load_default,
+    // "/": this.load_default,
     "/project_euler": project_euler
 };
 
