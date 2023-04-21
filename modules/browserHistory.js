@@ -4,7 +4,7 @@ export default function logHistory(url, page) {
     console.log("PAGE TO LOAD FROM PATH: ", page)
 
     // Change of the browsers url without reloading the page
-    let location = window.location.href + url;
+    let location = window.location.hostname + url;
     window.history.pushState({}, "", location);
     
     // Executing the method that renders the page
