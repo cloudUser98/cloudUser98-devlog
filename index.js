@@ -9,8 +9,6 @@ let filtered_paths = paths.filter(path => path)
 const last_path = filtered_paths.pop()
 
 const router = {
-    "/": this.load_default,
-    "/project_euler": project_euler,
     "navigate": (path) => logHistory(path, this[path]),
     "load_default": () => {
         fetch("https://clouduser98.github.io/luis-escobedo/index.html")
@@ -18,7 +16,9 @@ const router = {
             .then(html => {
                 document.getElementById("root").innerHTML = html;
             })
-    }
+    },
+    "/": this.load_default,
+    "/project_euler": project_euler
 };
 
 console.log("AAAAAAAAAAAAAAAAAAAAAAAAAA", last_path);
