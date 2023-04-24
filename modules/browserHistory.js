@@ -1,12 +1,25 @@
-export default function logHistory(url, page) {
+import project_euler from "project_euler";
 
-    console.log("PATH FOR ROUTER: ", url)
-    console.log("PAGE TO LOAD FROM PATH: ", page)
-
-    // Change of the browsers url without reloading the page
-    let location = window.location.hostname + url;
+const load_route = (path, pageLoader) => {
+    // Change of the browsers path without reloading the page
+    let location = window.location.hostname + path;
     window.history.pushState({}, "", location);
     
     // Executing the method that renders the page
-    page();
+    pageLoader();
 }
+
+function Router() {
+
+    const routes = {
+        "/project_euler": project_euler,
+    };
+
+    const navigate = (path) => {
+        load_route(path, routes[path])
+    };
+
+    this.navigate = navigate;
+};
+
+export default Router;
