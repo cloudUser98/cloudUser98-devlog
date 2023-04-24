@@ -13,10 +13,12 @@ const RouterObject = {
     routes: { 
         "/project_euler": project_euler,
     },
-    navigate: (path) => {
+    navigate: function(path) {
         load_route(path, this.routes[path])
     }
 }
+
+console.log(RouterObject);
 
 function Router() {
 
