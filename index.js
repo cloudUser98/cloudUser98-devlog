@@ -37,8 +37,8 @@ const router = new Router();
 const new_router = RouterObject;
 
 console.log("AAAAAAAAAAAAAAAAAAAAAAAAAA", last_path, router);
-// if (last_path in router) 
-//     logHistory(last_path, router[last_path]);
+if (last_path in router) 
+    logHistory(last_path, router[last_path]);
 
 function test() {
     // router.navigate("/project_euler");
