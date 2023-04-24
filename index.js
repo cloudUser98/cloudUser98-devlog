@@ -18,4 +18,4 @@ function test() {
 }
 
 button.addEventListener("click", test)
-// euler_button.addEventListener("click", router.navigate("/"))
+euler_button.addEventListener("click", test)
