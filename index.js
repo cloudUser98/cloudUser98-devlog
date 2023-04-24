@@ -31,8 +31,12 @@ function Router() {
 const router = new Router();
 
 console.log("AAAAAAAAAAAAAAAAAAAAAAAAAA", last_path, router);
-if (last_path in router) 
-    logHistory(last_path, router[last_path]);
+// if (last_path in router) 
+//     logHistory(last_path, router[last_path]);
 
-button.addEventListener("click", router.navigate("/project_euler"))
-euler_button.addEventListener("click", router.navigate("/"))
+function test() {
+    router.navigate(router.navigate("/project_euler"));
+}
+
+button.addEventListener("click", test)
+// euler_button.addEventListener("click", router.navigate("/"))
