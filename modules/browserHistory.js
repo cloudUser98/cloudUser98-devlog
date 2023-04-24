@@ -9,6 +9,15 @@ const load_route = (path, pageLoader) => {
     pageLoader();
 }
 
+const RouterObject = {
+    routes: { 
+        "/project_euler": project_euler,
+    },
+    navigate: (path) => {
+        load_route(path, this.routes[path])
+    }
+}
+
 function Router() {
 
     const routes = {
@@ -22,4 +31,4 @@ function Router() {
     this.navigate = navigate;
 };
 
-export default Router;
+export default RouterObject;

@@ -1,6 +1,6 @@
-import Router from "history";
+import RouterObject from "history";
 
-const router = new Router();
+const router = RouterObject;
 
 const euler_button = document.getElementById("getHistory")
 const button = document.getElementById("main")
