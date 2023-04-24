@@ -8,24 +8,29 @@ const paths = window.location.pathname.split("/")
 let filtered_paths = paths.filter(path => path)
 const last_path = filtered_paths.pop()
 
-function create_router() {
-    return {
-        navigate: (path) => logHistory(path, this[path]),
-        load_default: () => {
-            fetch("https://clouduser98.github.io/luis-escobedo/index.html")
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById("root").innerHTML = html;
-                })
-        },
-        "/": this.load_default,
+function Router() {
+
+    const load_default = () => {
+        fetch("https://clouduser98.github.io/luis-escobedo/index.html")
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById("root").innerHTML = html;
+            })
+    };
+
+    let router = {
+        "/": load_default,
         "/project_euler": project_euler
-    }
+    };
+
+    const navigate = (path) => logHistory(path, router[path]);
+
+    this.navigate = navigate;
 };
 
-const router = create_router()
+const router = new Router();
 
-console.log("AAAAAAAAAAAAAAAAAAAAAAAAAA", last_path);
+console.log("AAAAAAAAAAAAAAAAAAAAAAAAAA", last_path, router);
 if (last_path in router) 
     logHistory(last_path, router[last_path]);
 
