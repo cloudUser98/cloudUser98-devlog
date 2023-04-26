@@ -1,4 +1,4 @@
-import project_euler from "project_euler";
+import project_euler from "./project_euler.js";
 
 const load_route = (path, pageLoader) => {
     // Change of the browsers path without reloading the page
