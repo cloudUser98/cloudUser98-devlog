@@ -1,4 +1,4 @@
-import RouterObject from "history";
+import RouterObject from "./modules/browserHistory.js";
 
 const router = RouterObject;
 
