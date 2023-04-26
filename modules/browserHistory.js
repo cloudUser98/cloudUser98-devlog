@@ -1,5 +1,6 @@
 import project_euler from "./project_euler.js";
 
+
 const load_route = (path, pageLoader) => {
     // Change of the browsers path without reloading the page
     let location = window.location.hostname + path;
@@ -14,7 +15,8 @@ const RouterObject = {
         "/project_euler": project_euler,
     },
     navigate: function(path) {
-        load_route(path, this.routes[path])
+        if (path in this.routes)
+            load_route(path, this.routes[path])
     }
 }
 
@@ -32,5 +34,13 @@ function Router() {
 
     this.navigate = navigate;
 };
+
+window.addEventListener("hashchange", () => {
+    console.log("CHANGEEEEEEEEEE", window.location.hash.replace("#", ""));
+    let path = window.location.hash.replace("#", "")
+    window.history.pushState({}, "", path);
+
+    RouterObject.navigate("/" + path);
+});
 
 export default RouterObject;
