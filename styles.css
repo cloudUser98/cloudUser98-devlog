@@ -1,3 +1,17 @@
+body {
+    margin: 0px;
+}
+
 h1 {
-    font-family: "JetBrains Mono"
+    font-family: "JetBrains Mono";
+}
+
+.header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr fit-content(100%));
+    background-color: green;
+}
+
+.header-title {
+    grid-column: 1 / 3;
 }
