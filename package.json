@@ -1,0 +1,21 @@
+{
+  "name": "luis-escobedo",
+  "version": "1.0.0",
+  "description": "Personal page for study purposes",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudUser98/luis-escobedo.git"
+  },
+  "author": "cloudUser98",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cloudUser98/luis-escobedo/issues"
+  },
+  "homepage": "https://github.com/cloudUser98/luis-escobedo#readme",
+  "dependencies": {}
+}

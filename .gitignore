@@ -1,3 +1,4 @@
+node_modules/
 env/
 luis-escobedo/
 server.js
