@@ -11,24 +11,40 @@
   <body>
     <main id="root" >
         <div class="header" >
-            <h2 class="header-title" > Luis Esteban Page </h2>
+            <div class="flex-column">
+                <h2 class="header-title" > Luis Esteban Page </h2>
+            </div>
+            <div class="flex-column">
+                <input class="input" type="search" />
+            </div>
             <ul class="links" >
                 <li>
                     <a class="hyperlink" href="#project_euler" >Project Euler Progress</a>
                 </li>
                 <li>
-                    <a class="hyperlink" href="#project_euler" >Curriculum</a>
+                    <a class="hyperlink" href="#curriculum" >Curriculum</a>
+                </li>
+                <li>
+                    <span class="hyperlink dropdown">
+                        Apuntes/Practicas
+                        <div class="dropdown-menu">
+                            <a class="hyperlink dropdown-menu-option" href="#curriculum" >Curriculum</a>
+                            <a class="hyperlink dropdown-menu-option" href="#curriculum" >Curriculum</a>
+                        </div>
+                    </span>
                 </li>
             </ul>
         </div>
-        <h1> Luis Esteban Escobedo Planter </h1>
-        <p>
-        Este sitio esta enfocado en el registro de pruebas y logros en los temas que he decidido
-        estudiar en el ambito de programacion.
-        </p>
+        <div id="content">
+            <h1> Luis Esteban Escobedo Planter </h1>
+            <p>
+                Este sitio esta enfocado en el registro de pruebas y logros en los temas que he decidido
+                estudiar en el ambito de programacion.
+            </p>
+            <button id="main" >Go to main page</button>
+            <button id="getHistory" >euler</button>
+        </div>
     </main>
-    <button id="main" >Go to main page</button>
-    <button id="getHistory" >euler</button>
     <script type="module" src="./index.js"></script>
   </body>
 </html>

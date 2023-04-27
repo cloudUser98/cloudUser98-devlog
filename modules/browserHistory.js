@@ -1,4 +1,5 @@
 import project_euler from "./project_euler.js";
+import curriculum from "./curriculum.js";
 
 
 const load_route = (path, pageLoader) => {
@@ -10,9 +11,15 @@ const load_route = (path, pageLoader) => {
     pageLoader();
 }
 
+function load_default() {
+    console.log("DEAFULT PAGE");
+}
+
 const RouterObject = {
     routes: { 
+        "/": load_default,
         "/project_euler": project_euler,
+        "/curriculum": curriculum,
     },
     navigate: function(path) {
         if (path in this.routes)
@@ -38,8 +45,8 @@ function Router() {
 window.addEventListener("hashchange", () => {
     console.log("CHANGEEEEEEEEEE", window.location.hash.replace("#", ""));
     let path = window.location.hash.replace("#", "")
-    window.history.pushState({}, "", path);
 
+    console.log("/" + path);
     RouterObject.navigate("/" + path);
 });
 
