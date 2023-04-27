@@ -1,15 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+html {
+    width: 100%;
+    height: 100%;
+}
+
 body {
+    width: 100%;
+    height: 100%;
     margin: 0px;
     font-family: 'Open Sans', sans-serif;
     color: #FFFEFC;
 }
 
 #root {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    height: 100vw;
 }
 
 #content {
@@ -23,6 +31,7 @@ li {
 
 p {
     font-weight: bold;
+    text-align: center;
 }
 
 .flex-column {
@@ -37,11 +46,11 @@ p {
     align-items: center;
     background-color: #6B7D83;
     word-wrap: break-word;
-    width: 100vw;
     height: 70px;
 }
 
-.header-title {
+.main-title {
+    text-align: center;
 }
 
 .links {
