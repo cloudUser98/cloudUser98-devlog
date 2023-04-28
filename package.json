@@ -4,8 +4,9 @@
   "description": "Personal page for study purposes",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js",
-    "start": "node server.js"
+    "test": "node dist/index.js",
+    "start": "node server.js",
+    "build-dist": "./node_modules/typescript/bin/tsc"
   },
   "repository": {
     "type": "git",
@@ -17,5 +18,9 @@
     "url": "https://github.com/cloudUser98/luis-escobedo/issues"
   },
   "homepage": "https://github.com/cloudUser98/luis-escobedo#readme",
-  "dependencies": {}
+  "dependencies": {
+    "@octokit/rest": "^19.0.7",
+    "octokit": "^2.0.14",
+    "typescript": "^5.0.4"
+  }
 }

@@ -12,9 +12,9 @@ export default function Curriculum() {
     let root = document.getElementById("content");
     //
     // We erase all the childs from the root node
-    root.innerHTML = "";
+    root!.innerHTML = "";
 
     // root.appendChild(created_document);
     // We can't do this beacuse a "document" node cant be appended as a child
-    root.appendChild(created_document.documentElement);
+    root!.appendChild(created_document.documentElement);
 }

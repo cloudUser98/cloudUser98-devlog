@@ -3,7 +3,7 @@ export default function project_euler() {
     // Getting the root element of the document
     const root = document.getElementById("root");
 
-    root.innerHTML = "";
+    root!.innerHTML = "";
 
     // Creating the new elemenets for the document
     const header = document.createElement("h1");
@@ -13,7 +13,7 @@ export default function project_euler() {
     header.innerHTML = "PROJECT EULER";
     text.innerHTML = "Aqui existiran mis avances en el proyecto Euler";
 
-    root.appendChild(header);
-    root.appendChild(body);
+    root!.appendChild(header);
+    root!.appendChild(body);
     body.appendChild(text);
 }

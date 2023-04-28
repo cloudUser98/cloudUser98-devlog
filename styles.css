@@ -3,6 +3,7 @@
 html {
     width: 100%;
     height: 100%;
+    background-color: #5A665D;
 }
 
 body {
@@ -20,10 +21,12 @@ body {
     flex-direction: column;
 }
 
-#content {
+#layout {
+    display: flex;
+    flex-direction: row;
     flex-grow: 2;
-    padding: 40px;
-    background-color: #5A665D;
+    /* padding: 40px; */
+    margin: 0px 10px 0px 10px;
 }
 
 li {
@@ -34,8 +37,34 @@ p {
     text-align: center;
 }
 
+.image-hyperlink {
+    display: flex;
+    align-items: center;
+}
+
+svg {
+}
+
 .flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
     padding: 0px 30px 0px 30px;
+}
+
+.main-column {
+    flex: 2;
+}
+
+/* We use align-items and no justify beacuse the direction is in a column way */
+.start-column {
+    align-items: flex-start;
+}
+
+/* We use align-items and no justify beacuse the direction is in a column way */
+.end-column {
+    align-items: flex-end;
 }
 
 .header {
@@ -47,6 +76,11 @@ p {
     background-color: #6B7D83;
     word-wrap: break-word;
     height: 70px;
+}
+
+.header-content {
+    background-color: #6A7D43;
+    height: 50px;
 }
 
 .main-title {
