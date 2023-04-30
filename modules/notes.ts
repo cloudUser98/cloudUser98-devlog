@@ -1,4 +1,4 @@
-import { Octokit } from "https://cdn.skypack.dev/pin/octokit@v2.0.14-WDHE0c1GgF96ore7BeW1/mode=imports/optimized/octokit.js";
+import { Octokit } from "octokit";
 
 const octokit = new Octokit({
     auth: "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"
@@ -34,7 +34,7 @@ let root = document.getElementById("content");
 
 async function Notes() {
     console.log("NOTES");
-    root.innerHTML = "";
+    root!.innerHTML = "";
 
     let respository_data = await get_repository_data();
 

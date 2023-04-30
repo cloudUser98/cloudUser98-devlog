@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "luis-escobedo",
   "version": "1.0.0",
   "description": "Personal page for study purposes",
@@ -6,7 +7,8 @@
   "scripts": {
     "test": "node dist/index.js",
     "start": "node server.js",
-    "build-dist": "./node_modules/typescript/bin/tsc"
+    "build-dist": "./node_modules/typescript/bin/tsc",
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -22,5 +24,9 @@
     "@octokit/rest": "^19.0.7",
     "octokit": "^2.0.14",
     "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "rollup": "^3.21.2"
   }
 }

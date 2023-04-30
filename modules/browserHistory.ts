@@ -1,6 +1,6 @@
-import project_euler from "./project_euler.js";
-import curriculum from "./curriculum.js";
-import Notes from "./notes.js";
+import project_euler from "./project_euler";
+import curriculum from "./curriculum";
+// import Notes from "./notes";
 
 function load_default() {
     console.log("DEAFULT PAGE");
@@ -12,12 +12,12 @@ interface RouterObject {
     readonly load_route: Function;
 }
 
-export const router:RouterObject = {
+const router:RouterObject = {
     routes: { 
         "/": load_default,
         "/project_euler": project_euler,
-        "/curriculum": curriculum,
-        "/notes": Notes,
+        "/curriculum": curriculum
+        // "/notes": Notes,
     },
     load_route: function(path: string, pageLoader: Function) {
         // Change of the browsers path without reloading the page
@@ -32,6 +32,8 @@ export const router:RouterObject = {
             this.load_route(path, this.routes[path as keyof object])
     }
 }
+
+export default router;
 
 console.log(router);
 

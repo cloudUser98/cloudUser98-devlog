@@ -1,4 +1,4 @@
-import { router } from "./modules/browserHistory.js";
+import router from "./modules/browserHistory";
 
 console.log("YA HAY TYPESCRIPT AAAAAAAAAAAA");
 
