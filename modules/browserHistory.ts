@@ -34,7 +34,11 @@ const router:RouterObject = {
         console.log("paths: ", paths_lol);
         console.log("paths: ", paths);
 
-        window.history.pushState({}, "", "/" + paths[1] + path);
+        let url_start = "";
+        // paths[1] && url_start = "/";    why this does not work?
+        paths[1] && (url_start = "/");
+
+        window.history.pushState({}, "", url_start + paths[1] + path);
     
         // Executing the method that renders the page
         pageLoader();
@@ -54,6 +58,6 @@ window.addEventListener("hashchange", () => {
     console.log("CHANGEEEEEEEEEE", window.location.hash.replace("#", ""));
     let path = window.location.hash.replace("#", "")
 
-    console.log("/" + path);
-    router.navigate("/" + path);
+    console.log(path);
+    router.navigate(path);
 });
