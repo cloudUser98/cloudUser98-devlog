@@ -25,8 +25,16 @@ const router:RouterObject = {
     },
     load_route: function(path: string, pageLoader: Function) {
         // Change of the browsers path without reloading the page
-        let location = window.location.hostname + path;
-        window.history.pushState({}, "", path);
+        let host = window.location.hostname;
+        let location_paths = window.location.pathname;
+        console.log("Paths before split: ", location_paths, location_paths.length);
+        let paths_lol = location_paths.split("/");
+        let paths = location_paths.split("/", 2);
+
+        console.log("paths: ", paths_lol);
+        console.log("paths: ", paths);
+
+        window.history.pushState({}, "", "/" + paths[1] + path);
     
         // Executing the method that renders the page
         pageLoader();
