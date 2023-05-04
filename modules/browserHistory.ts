@@ -1,5 +1,7 @@
-import project_euler from "./project_euler";
-import curriculum from "./curriculum";
+import project_euler from "./project_euler.js";
+import Curriculum from "./curriculum.js";
+import study from "./study.js";
+import renderPatterns from "./render-patterns.js";
 // import Notes from "./notes";
 
 function load_default() {
@@ -16,8 +18,10 @@ const router:RouterObject = {
     routes: { 
         "/": load_default,
         "/project_euler": project_euler,
-        "/curriculum": curriculum
+        "/curriculum": Curriculum,
         // "/notes": Notes,
+        "/study": study,
+        "/render-patterns": renderPatterns,
     },
     load_route: function(path: string, pageLoader: Function) {
         // Change of the browsers path without reloading the page
@@ -28,6 +32,7 @@ const router:RouterObject = {
         pageLoader();
     },
     navigate: function(path: string) {
+        console.log("navegando a ", path);
         if (path in this.routes)
             this.load_route(path, this.routes[path as keyof object])
     }

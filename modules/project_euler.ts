@@ -1,4 +1,5 @@
 export default function project_euler() {
+    console.log("PROJECT EULER");
 
     // Getting the root element of the document
     const root = document.getElementById("root");

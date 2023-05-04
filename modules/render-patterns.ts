@@ -13,7 +13,7 @@ function renderPatterns() {
         <p>
             Primero empezaremos por definir el termino de renderizado de paginas web.
         </P>
-        <h2 id="definition"> ¿Que es un patron de renderizado? </h2>
+        <h2 id="definition">¿Que es un patron de renderizado?</h2>
         <h3> Segun aritmetrics.com: </h3>
         <p> 
             "El renderizado web, o renderización de páginas web, es el proceso de mostrar contenido
@@ -23,6 +23,19 @@ function renderPatterns() {
             ejecutar acciones del lado del cliente como el código JavaScript."
         </p>
         <img src="https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+        <h2 id="static-pages">Paginas estaticas</h2>
+        <p>
+            El primer patron de renderizado del que hablaremos es el patro de paginas estaticas.
+            Este es el patron mas simple y consiste en el envio de archivos estaticos por parte
+            del servidor, sin agergar ningun proceso de renderizado de parte del cliente o del
+            lado del servidor.
+        </p>
+        <p>
+            Las paginas renderizadas con este patron suelen estar compuestas por unicamene HTML,
+            CSS y Javascript, este ultimo con el fin de agregarle interactivadad a los componetes
+            del archivo HTML.
+        </p>
+        <img src="https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
     `
 
     load_indexes();
@@ -37,6 +50,11 @@ function load_indexes() {
             <li class="index-menu-item">
                 <a class="hyperlink-container" href="#definition">
                     ¿Que es el renderizado?
+                </a>
+            </li>
+            <li class="index-menu-item">
+                <a class="hyperlink-container" href="#static-pages">
+                    Paginas estaticas
                 </a>
             </li>
         </ul>

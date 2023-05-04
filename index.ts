@@ -1,8 +1,8 @@
-import { router } from "./modules/browserHistory.js";
+import router from "./modules/browserHistory.js";
 
 console.log("YA HAY TYPESCRIPT AAAAAAAAAAAA");
 
-const new_router = router;
+console.log(router);
 
 const root = document.querySelector(":root") as HTMLElement | null;
 const styles = getComputedStyle(root!);
@@ -23,14 +23,21 @@ function test() {
     router.navigate("/project_euler");
 }
 
-function changeColor() {
-    root!.style.setProperty("--main-bg-color", "#080909");
-    root!.style.setProperty("--secondary-color", "292c2f");
-    root!.style.setProperty("--complementary-color", "#414756");
-    root!.style.setProperty("--font-color", "#fefefe");
+function changeColor(e: Event) {
+    if ((e.target as HTMLInputElement).checked) {
+        root!.style.setProperty("--main-bg-color", "var(--bg-dark");
+        root!.style.setProperty("--secondary-color", "var(--secondary-dark");
+        root!.style.setProperty("--complementary-color", "var(--complementary-dark");
+        root!.style.setProperty("--font-color", "var(--font-dark");
+    } else {
+        root!.style.setProperty("--main-bg-color", "var(--bg-light");
+        root!.style.setProperty("--secondary-color", "var(--secondary-light");
+        root!.style.setProperty("--complementary-color", "var(--complementary-light");
+        root!.style.setProperty("--font-color", "var(--font-light");
+    }
 }
 
 
 button!.addEventListener("click", test);
 euler_button!.addEventListener("click", test);
-theme!.addEventListener("click", changeColor);
+theme!.addEventListener("change", changeColor);
