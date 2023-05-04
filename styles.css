@@ -1,9 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+:root {
+    --main-bg-color: var(--bg-light);
+    --secondary-color: var(--secondary-light);
+    --complementary-color: var(complementary-light);
+    --font-color: var(--font-light);
+    --bg-light: #fefefe;
+    --secondary-light: #4e606c;
+    --complementary-light: #c4d6ea;
+    --font-light: #080909;
+    --bg-dark: #080909;
+    --secondary-dark: #292c2f;
+    --complementary-dark: #414756;
+    --font-dark: #fefefe;
+}
+
 html {
     width: 100%;
     height: 100%;
-    background-color: #5A665D;
+    background-color: var(--main-bg-color);
+    scroll-behavior: smooth;
 }
 
 body {
@@ -11,7 +27,7 @@ body {
     height: 100%;
     margin: 0px;
     font-family: 'Open Sans', sans-serif;
-    color: #FFFEFC;
+    color: var(--font-color);
 }
 
 #root {
@@ -22,6 +38,7 @@ body {
 }
 
 #layout {
+    color: var(--font-color);
     display: flex;
     flex-direction: row;
     flex-grow: 2;
@@ -33,11 +50,13 @@ li {
 }
 
 p {
-    font-weight: bold;
-    text-align: center;
+    font-weight: normal;
+    text-align: justify;
 }
 
-.image-hyperlink {
+.hyperlink-container {
+    text-decoration: unset;
+    color: unset;
     display: flex;
     align-items: center;
 }
@@ -54,17 +73,28 @@ svg {
 }
 
 .main-column {
+    align-items: center;
     flex: 2;
 }
 
-/* We use align-items and no justify beacuse the direction is in a column way */
-.start-column {
-    align-items: flex-start;
+.end-column {
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-/* We use align-items and no justify beacuse the direction is in a column way */
-.end-column {
-    align-items: flex-end;
+.start-column {
+    flex-direction: row;
+    justify-content: start;
+}
+
+#content {
+    align-items: start;
+}
+
+
+.main-column img {
+    align-self: center;
+    max-height: 420px;
 }
 
 .header {
@@ -73,13 +103,13 @@ svg {
     flex-wrap: nowrap;
     justify-content: start; 
     align-items: center;
-    background-color: #6B7D83;
+    background-color: var(--secondary-color);
     word-wrap: break-word;
     height: 70px;
 }
 
 .header-content {
-    background-color: #6A7D43;
+    background-color: var(--complementary-color);
     height: 50px;
 }
 
@@ -139,4 +169,87 @@ svg {
 
 .dropdown-menu-option:hover {
     background: gray;
+}
+
+.index-menu {
+    padding-inline-start: unset;
+    border: 2px solid var(--font-color);
+    list-style-type: none;
+}
+
+.index-menu-item {
+    text-align: center;
+    border-top: 2px solid var(--font-color);
+}
+
+.index-menu-item:hover {
+    background-color: gray;
+}
+
+.search-input:focus-visible {
+    outline-style: none;
+    border-style: none;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
