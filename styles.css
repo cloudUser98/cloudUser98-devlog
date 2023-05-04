@@ -3,7 +3,7 @@
 :root {
     --main-bg-color: var(--bg-light);
     --secondary-color: var(--secondary-light);
-    --complementary-color: var(complementary-light);
+    --complementary-color: var(--complementary-light);
     --font-color: var(--font-light);
     --bg-light: #fefefe;
     --secondary-light: #4e606c;
