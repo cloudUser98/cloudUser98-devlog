@@ -20,7 +20,8 @@
         // paths[1] && url_start = "/";    why this does not work?
             paths[1] && (url_start = "/");
 
-        window.history.pushState({}, "", url_start + paths[1] + "?" + path);
+        window.location = url_start + paths[1] + "?" + path;
+        //window.history.pushState({}, "", url_start + paths[1] + "?" + path);
     </script>
   </head>
   <body>
