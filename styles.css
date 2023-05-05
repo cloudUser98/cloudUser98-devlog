@@ -1,18 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 :root {
-    --main-bg-color: var(--bg-light);
-    --secondary-color: var(--secondary-light);
-    --complementary-color: var(--complementary-light);
-    --font-color: var(--font-light);
+
+    /* Light theme color values */
     --bg-light: #fefefe;
     --secondary-light: #4e606c;
     --complementary-light: #c4d6ea;
     --font-light: #080909;
+
+    /* Dark theme color values */
     --bg-dark: #080909;
     --secondary-dark: #292c2f;
     --complementary-dark: #414756;
     --font-dark: #fefefe;
+
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --main-bg-color: var(--bg-light);
+        --secondary-color: var(--secondary-light);
+        --complementary-color: var(--complementary-light);
+        --font-color: var(--font-light);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --main-bg-color: var(--bg-dark);
+        --secondary-color: var(--secondary-dark);
+        --complementary-color: var(--complementary-dark);
+        --font-color: var(--font-dark);
+    }
 }
 
 html {
@@ -90,7 +109,6 @@ svg {
 #content {
     align-items: start;
 }
-
 
 .main-column img {
     align-self: center;

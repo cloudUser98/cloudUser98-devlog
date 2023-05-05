@@ -19,7 +19,7 @@ function load_indexes() {
         <ul class="index-menu">
             <h3>Content table</h3>
             <li class="index-menu-item">
-                <a class="hyperlink-container" href="#render-patterns">
+                <a class="hyperlink-container" href="#/render-patterns">
                     Rendering patterns for web apps
                 </a>
             </li>

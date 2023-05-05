@@ -8,13 +8,38 @@ function load_default() {
     console.log("DEAFULT PAGE");
 }
 
+export function catchLoadedRoute(window_location: string) {
+
+    // Revisar porque url = url.split("?"); da error
+
+    // Getting the requested path for the page load
+    let url = window_location.split("?")[1];
+    console.log("requested paths: ", url);
+
+    let paths_to_load: Array<string> = [];
+    let path: string = "";
+
+    for (let i: number = 0; i < url.length; i++) {
+        let char = url.charAt(i);
+        let next_char = url.charAt(i+1);
+        char === "/" ? path = "/" : path += char;
+        console.log("path: ", path, " and the next character is: ", next_char);
+
+        if (next_char === "/" || next_char === '') paths_to_load.push(path);
+    }
+
+    console.log("Array of paths to load: ", paths_to_load);
+
+    router.navigate(paths_to_load[0]);
+}
+
 interface RouterObject {
     routes: object;
     readonly navigate: Function;
     readonly load_route: Function;
 }
 
-const router:RouterObject = {
+export const router:RouterObject = {
     routes: { 
         "/": load_default,
         "/project_euler": project_euler,
@@ -25,7 +50,6 @@ const router:RouterObject = {
     },
     load_route: function(path: string, pageLoader: Function) {
         // Change of the browsers path without reloading the page
-        let host = window.location.hostname;
         let location_paths = window.location.pathname;
         console.log("Paths before split: ", location_paths, location_paths.length);
         let paths_lol = location_paths.split("/");
@@ -49,8 +73,6 @@ const router:RouterObject = {
             this.load_route(path, this.routes[path as keyof object])
     }
 }
-
-export default router;
 
 console.log(router);
 
