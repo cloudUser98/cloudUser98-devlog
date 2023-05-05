@@ -18,9 +18,11 @@
 
         let url_start = "";
         // paths[1] && url_start = "/";    why this does not work?
-            paths[1] && (url_start = "/");
+        paths[1] && (url_start = "/");
 
-        window.location = url_start + paths[1] + "?" + path;
+        console.log("url start: ", url_start);
+
+        window.location = url_start + paths[1] + "/?" + path;
         //window.history.pushState({}, "", url_start + paths[1] + "?" + path);
     </script>
   </head>

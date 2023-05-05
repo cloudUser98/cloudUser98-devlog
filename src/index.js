@@ -1,6 +1,7 @@
-import router from "./modules/browserHistory.js";
+import { router, catchLoadedRoute } from "./modules/browserHistory.js";
 console.log("YA HAY TYPESCRIPT AAAAAAAAAAAA");
 console.log(router);
+catchLoadedRoute(window.location.href);
 const root = document.querySelector(":root");
 const styles = getComputedStyle(root);
 const euler_button = document.getElementById("getHistory");
