@@ -1,18 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 :root {
-    --main-bg-color: var(--bg-light);
-    --secondary-color: var(--secondary-light);
-    --complementary-color: var(--complementary-light);
-    --font-color: var(--font-light);
+
+    /* Light theme color values */
     --bg-light: #fefefe;
     --secondary-light: #4e606c;
     --complementary-light: #c4d6ea;
     --font-light: #080909;
+
+    /* Dark theme color values */
     --bg-dark: #080909;
     --secondary-dark: #292c2f;
     --complementary-dark: #414756;
     --font-dark: #fefefe;
+
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 16px;
+
+}
+
+/* Use of media prefers-color-scheme to set the initial values for the theme */
+@media (prefers-color-scheme: light) {
+    :root {
+        --main-bg-color: var(--bg-light);
+        --secondary-color: var(--secondary-light);
+        --complementary-color: var(--complementary-light);
+        --font-color: var(--font-light);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --main-bg-color: var(--bg-dark);
+        --secondary-color: var(--secondary-dark);
+        --complementary-color: var(--complementary-dark);
+        --font-color: var(--font-dark);
+    }
 }
 
 html {
@@ -26,7 +49,6 @@ body {
     width: 100%;
     height: 100%;
     margin: 0px;
-    font-family: 'Open Sans', sans-serif;
     color: var(--font-color);
 }
 
@@ -58,7 +80,7 @@ p {
     text-decoration: unset;
     color: unset;
     display: flex;
-    align-items: center;
+    justify-content: center;
 }
 
 svg {
@@ -90,7 +112,6 @@ svg {
 #content {
     align-items: start;
 }
-
 
 .main-column img {
     align-self: center;
@@ -172,6 +193,7 @@ svg {
 }
 
 .index-menu {
+    max-width: 225px;
     padding-inline-start: unset;
     border: 2px solid var(--font-color);
     list-style-type: none;
@@ -179,6 +201,7 @@ svg {
 
 .index-menu-item {
     text-align: center;
+    padding: 5px 10px 5px 10px;
     border-top: 2px solid var(--font-color);
 }
 

@@ -9,8 +9,11 @@ function load_default() {
 export function catchLoadedRoute(window_location) {
     // Revisar porque url = url.split("?"); da error
     // Getting the requested path for the page load
+    // by splitting the browser's URL and getting the values after the "?" symbol
     let url = window_location.split("?")[1];
     console.log("requested paths: ", url);
+    if (!url)
+        return; // if there is no "?" symbol in the URL the page won't be loaded
     let paths_to_load = [];
     let path = "";
     for (let i = 0; i < url.length; i++) {
