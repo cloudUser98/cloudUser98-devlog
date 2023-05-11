@@ -6,7 +6,10 @@ const root = document.querySelector(":root") as HTMLElement | null;
 
 const theme = document.getElementById("theme");
 
+console.log("theme button: ", theme);
+
 function changeColor(e: Event) {
+    console.log("theme");
     if ((e.target as HTMLInputElement).checked) {
         root!.style.setProperty("--main-bg-color", "var(--bg-dark");
         root!.style.setProperty("--secondary-color", "var(--secondary-dark");
