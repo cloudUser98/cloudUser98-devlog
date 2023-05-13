@@ -35,13 +35,6 @@ function renderPatterns() {
             del archivo HTML.
         </p>
         <img src="https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-        <p>
-            Un ejemplo del uso de esta estrategia de renderizado puede ser la página de inicio de
-            este sitio web. La pagina inicial existe como un archivo HTML en el servidor que almacena
-            este sitio, este documento es cargado cuando accedes a la URL principal del sitio. Una vez
-            cargado, el documento le dice al servidor que tiene que servir la hoja de estilos y el
-            archivo principal de scripts (aqui es donde la magia empieza).
-        </p>
     `;
     load_indexes();
 }
