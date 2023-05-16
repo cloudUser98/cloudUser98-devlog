@@ -2,25 +2,35 @@ import { catchLoadedRoute } from "./modules/browserHistory.js";
 
 catchLoadedRoute(window.location.href);
 
-const root = document.querySelector(":root") as HTMLElement | null;
+const systemThemeSwitch = document.getElementById("theme");
 
-const theme = document.getElementById("theme");
+function setDarkTheme(ROOT_PSEUDOCLASS: HTMLElement) {
+    ROOT_PSEUDOCLASS!.style.setProperty("--main-bg-color", "var(--bg-dark");
+    ROOT_PSEUDOCLASS!.style.setProperty("--secondary-color", "var(--secondary-dark");
+    ROOT_PSEUDOCLASS!.style.setProperty("--complementary-color", "var(--complementary-dark");
+    ROOT_PSEUDOCLASS!.style.setProperty("--font-color", "var(--font-dark");
+}
 
-console.log("theme button: ", theme);
+function setLightTheme(ROOT_PSEUDOCLASS: HTMLElement) {
+    ROOT_PSEUDOCLASS!.style.setProperty("--main-bg-color", "var(--bg-light");
+    ROOT_PSEUDOCLASS!.style.setProperty("--secondary-color", "var(--secondary-light");
+    ROOT_PSEUDOCLASS!.style.setProperty("--complementary-color", "var(--complementary-light");
+    ROOT_PSEUDOCLASS!.style.setProperty("--font-color", "var(--font-light");
+}
 
-function changeColor(e: Event) {
-    console.log("theme");
+function changeRootCustomProperties(e: Event) {
+
+    // Getting the root pseudoclass element
+    const ROOT_PSEUDOCLASS = document.querySelector(":root") as HTMLElement | null;
+
     if ((e.target as HTMLInputElement).checked) {
-        root!.style.setProperty("--main-bg-color", "var(--bg-dark");
-        root!.style.setProperty("--secondary-color", "var(--secondary-dark");
-        root!.style.setProperty("--complementary-color", "var(--complementary-dark");
-        root!.style.setProperty("--font-color", "var(--font-dark");
+        setDarkTheme(ROOT_PSEUDOCLASS!)
     } else {
-        root!.style.setProperty("--main-bg-color", "var(--bg-light");
-        root!.style.setProperty("--secondary-color", "var(--secondary-light");
-        root!.style.setProperty("--complementary-color", "var(--complementary-light");
-        root!.style.setProperty("--font-color", "var(--font-light");
+        setLightTheme(ROOT_PSEUDOCLASS!);
     }
 }
 
-theme!.addEventListener("change", changeColor);
+// Adding event listeners to the DOM elements
+systemThemeSwitch!.addEventListener("change", changeRootCustomProperties);
+
+// Change theme switch status according to the default prefered system theme

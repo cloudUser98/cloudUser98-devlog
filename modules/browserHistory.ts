@@ -2,11 +2,9 @@ import project_euler from "./project_euler.js";
 import Curriculum from "./curriculum.js";
 import study from "./study.js";
 import renderPatterns from "./render-patterns.js";
-// import Notes from "./notes";
+import page_404 from "./404_page.js"
+import CONFIG from "./../routerconfig.js";
 
-function load_default() {
-    console.log("DEAFULT PAGE");
-}
 
 export function catchLoadedRoute(window_location: string) {
 
@@ -38,52 +36,63 @@ export function catchLoadedRoute(window_location: string) {
 }
 
 interface RouterObject {
-    routes: object;
+    DEFAULT_HOST_PATH: string;
+    routes: Record<string, () => void>;
     readonly navigate: Function;
     readonly load_route: Function;
 }
 
+// Revisar porque esta ruta funciona aunque fisicamente este niveles arriba
+//fetch("./routerconfig.json") 
+//    .then(response => response.json())
+//    .then(object => {let test = object.DEFAULT_HOST_PATH})
+//
+// La idea de usar fetch esta deprecada pero seria interesante explorarla mas
+// a fondo
+
 export const router:RouterObject = {
+    DEFAULT_HOST_PATH: CONFIG.DEFAULT_HOST_PATH,
     routes: { 
-        "/": load_default,
+        "/": () => window.location.pathname = router.DEFAULT_HOST_PATH + "/",
+        "/404_not_found": page_404,
         "/project_euler": project_euler,
         "/curriculum": Curriculum,
-        // "/notes": Notes,
         "/study": study,
         "/render-patterns": renderPatterns,
     },
     load_route: function(path: string, pageLoader: Function) {
         // Change of the browsers path without reloading the page
-        let location_paths = window.location.pathname;
-        console.log("Paths before split: ", location_paths, location_paths.length);
-        let paths_lol = location_paths.split("/");
-        let paths = location_paths.split("/", 2);
+        //let location_paths = window.location.pathname;
+        //console.log("Paths before split: ", location_paths, location_paths.length);
+        //let paths_lol = location_paths.split("/");
+        //let paths = location_paths.split("/", 2);
 
-        console.log("paths: ", paths_lol);
-        console.log("paths: ", paths);
-
-        let url_start = "";
+        //let url_start = "";
         // paths[1] && url_start = "/";    why this does not work?
-        paths[1] && (url_start = "/");
+        //paths[1] && (url_start = "/");
 
-        window.history.pushState({}, "", url_start + paths[1] + path);
+        // let navigation_path = this.DEFAULT_HOST + "path";
+
+        window.history.pushState({}, "", this.DEFAULT_HOST_PATH + path);
     
         // Executing the method that renders the page
         pageLoader();
     },
     navigate: function(path: string) {
         console.log("navegando a ", path);
-        if (path in this.routes)
-            this.load_route(path, this.routes[path as keyof object])
+        if (path in this.routes) {
+           this.load_route(path, this.routes[path as keyof object]);
+        } else {
+            console.log("NO ENCONTRO LA PAGINA");
+            this.load_route("/404_not_found", page_404);
+        }
     }
 }
 
-console.log(router);
-
 window.addEventListener("hashchange", () => {
-    console.log("CHANGEEEEEEEEEE", window.location.hash.replace("#", ""));
     let path = window.location.hash.replace("#", "")
+    console.log("LOOOOOOOOOOL", path)
 
-    console.log(path);
-    router.navigate(path);
+    // Preventing rendering of route if the path is a normal hash route
+    if (path.includes("/")) router.navigate(path);
 });
