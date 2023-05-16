@@ -1,19 +1,28 @@
 import { catchLoadedRoute } from "./modules/browserHistory.js";
 catchLoadedRoute(window.location.href);
-const root = document.querySelector(":root");
-const theme = document.getElementById("theme");
-function changeColor(e) {
+const systemThemeSwitch = document.getElementById("theme");
+function setDarkTheme(ROOT_PSEUDOCLASS) {
+    ROOT_PSEUDOCLASS.style.setProperty("--main-bg-color", "var(--bg-dark");
+    ROOT_PSEUDOCLASS.style.setProperty("--secondary-color", "var(--secondary-dark");
+    ROOT_PSEUDOCLASS.style.setProperty("--complementary-color", "var(--complementary-dark");
+    ROOT_PSEUDOCLASS.style.setProperty("--font-color", "var(--font-dark");
+}
+function setLightTheme(ROOT_PSEUDOCLASS) {
+    ROOT_PSEUDOCLASS.style.setProperty("--main-bg-color", "var(--bg-light");
+    ROOT_PSEUDOCLASS.style.setProperty("--secondary-color", "var(--secondary-light");
+    ROOT_PSEUDOCLASS.style.setProperty("--complementary-color", "var(--complementary-light");
+    ROOT_PSEUDOCLASS.style.setProperty("--font-color", "var(--font-light");
+}
+function changeRootCustomProperties(e) {
+    // Getting the root pseudoclass element
+    const ROOT_PSEUDOCLASS = document.querySelector(":root");
     if (e.target.checked) {
-        root.style.setProperty("--main-bg-color", "var(--bg-dark");
-        root.style.setProperty("--secondary-color", "var(--secondary-dark");
-        root.style.setProperty("--complementary-color", "var(--complementary-dark");
-        root.style.setProperty("--font-color", "var(--font-dark");
+        setDarkTheme(ROOT_PSEUDOCLASS);
     }
     else {
-        root.style.setProperty("--main-bg-color", "var(--bg-light");
-        root.style.setProperty("--secondary-color", "var(--secondary-light");
-        root.style.setProperty("--complementary-color", "var(--complementary-light");
-        root.style.setProperty("--font-color", "var(--font-light");
+        setLightTheme(ROOT_PSEUDOCLASS);
     }
 }
-theme.addEventListener("change", changeColor);
+// Adding event listeners to the DOM elements
+systemThemeSwitch.addEventListener("change", changeRootCustomProperties);
+// Change theme switch status according to the default prefered system theme

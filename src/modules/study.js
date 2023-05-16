@@ -17,7 +17,7 @@ function load_indexes() {
             <h3>Content table</h3>
             <li class="index-menu-item">
                 <a class="hyperlink-container" href="#/render-patterns">
-                    Rendering patterns for web apps
+                    Patrones de renderizado para paginas web
                 </a>
             </li>
         </ul>
