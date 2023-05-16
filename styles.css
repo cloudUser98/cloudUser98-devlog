@@ -1,9 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
 /* The root pseudoclass is the root element of the <html> element */
 :root {
+
+    --default-font: 'Open Sans';
+    --header-font: 'Archivo Black';
 
     /* Light theme color values */
     --bg-light: #fefefe;
@@ -17,7 +20,7 @@
     --complementary-dark: #414756;
     --font-dark: #fefefe;
 
-    font-family: 'Open Sans', sans-serif;
+    font-family: var(--default-font), sans-serif;
     font-size: 20px;
 
 }
@@ -144,6 +147,7 @@ svg {
 }
 
 .main-title {
+    font-family: var(--header-font), 'sans-serif';
     text-align: center;
 }
 
