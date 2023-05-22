@@ -148,6 +148,7 @@ svg {
 
 .main-title {
     font-family: var(--header-font), 'sans-serif';
+    font-weight: normal;
     text-align: center;
 }
 
