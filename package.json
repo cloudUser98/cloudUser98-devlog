@@ -20,12 +20,10 @@
   },
   "homepage": "https://github.com/cloudUser98/luis-escobedo#readme",
   "dependencies": {
-    "@octokit/rest": "^19.0.7",
-    "octokit": "^2.0.14",
-    "typescript": "^5.0.4"
+      "simple-githubpages-spa-router": "file:../simple-githubpages-spa-router/",
+      "typescript": "^5.0.4"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^15.0.2",
-    "rollup": "^3.21.2"
+    "typescript": "^5.0.4"
   }
 }
