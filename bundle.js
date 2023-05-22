@@ -228,7 +228,7 @@ function defaultListener(routerInstance) {
 createRouter([
     { path: "/study", pageRenderer: study },
     { path: "/render-patterns", pageRenderer: renderPatterns },
-], "/luis-escobedo");
+], "/cloudUser98-devlog");
 const systemThemeSwitch = document.getElementById("theme");
 function setDarkTheme(ROOT_PSEUDOCLASS) {
     ROOT_PSEUDOCLASS.style.setProperty("--main-bg-color", "var(--bg-dark");
