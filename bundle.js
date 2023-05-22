@@ -206,9 +206,9 @@ class gpSpaRouter extends baseRouter {
 * i use new basicRouter; without the ()
 */
 
-function createRouter(routes, hostPath, customListener) {
+function createRouter(routes, repoName, customListener) {
     console.log("creating a route");
-    return new gpSpaRouter(routes, hostPath, customListener);
+    return new gpSpaRouter(routes, repoName, customListener);
 }
 /*
     * Default listener method that will be attached to the Window object
