@@ -9,9 +9,7 @@ import { createRouter, route } from "simple-githubpages-spa-router";
 let router = createRouter([
     {path: "/study", pageRenderer: study},
     {path: "/render-patterns", pageRenderer: renderPatterns},
-], "/cloudUser98-devlog");
-
-//catchLoadedRoute(window.location.href);
+],"/cloudUser98-devlog");
 
 const systemThemeSwitch = document.getElementById("theme");
 

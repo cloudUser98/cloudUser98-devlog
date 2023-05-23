@@ -105,7 +105,7 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
-  "exclude": ["node_modules", "src", "server.js"],
+  "exclude": ["../simple-githubpages-spa-router", "node_modules", "src", "server.js"],
   "include": [
     "./modules",
     "./*",

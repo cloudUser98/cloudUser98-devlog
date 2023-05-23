@@ -6,8 +6,7 @@
   "scripts": {
     "test": "node dist/index.js",
     "start": "node server.js",
-    "build-dist": "./node_modules/typescript/bin/tsc",
-    "build": "rollup -c"
+    "build": "tsc | npx rollup -c"
   },
   "repository": {
     "type": "git",
@@ -20,10 +19,12 @@
   },
   "homepage": "https://github.com/cloudUser98/luis-escobedo#readme",
   "dependencies": {
-      "simple-githubpages-spa-router": "file:../simple-githubpages-spa-router/",
-      "typescript": "^5.0.4"
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "rollup": "^3.23.0",
+    "typescript": "^5.0.4"
   },
   "devDependencies": {
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "simple-githubpages-spa-router": "file:../simple-githubpages-spa-router"
   }
 }
