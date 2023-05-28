@@ -21,10 +21,10 @@
   "dependencies": {
     "@rollup/plugin-node-resolve": "^15.0.2",
     "rollup": "^3.23.0",
+    "simple-githubpages-spa-router": "^2.0.0",
     "typescript": "^5.0.4"
   },
   "devDependencies": {
-    "typescript": "^5.0.4",
-    "simple-githubpages-spa-router": "file:../simple-githubpages-spa-router"
+    "typescript": "^5.0.4"
   }
 }

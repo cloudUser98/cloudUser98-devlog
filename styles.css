@@ -79,7 +79,7 @@ li {
 
 p {
     font-weight: normal;
-    text-align: justify;
+    text-align: left;
 }
 
 code {
@@ -105,7 +105,8 @@ svg {
 }
 
 .main-column {
-    align-items: center;
+    align-self: stretch;
+    justify-content: center;
     flex: 2;
 }
 
@@ -136,14 +137,14 @@ svg {
     align-items: center;
     background-color: var(--secondary-color);
     word-wrap: break-word;
-    height: 70px;
+    height: 50px;
 }
 
 .header-content {
     display: flex;
     align-items: center;
     background-color: var(--complementary-color);
-    height: 50px;
+    height: 25px;
 }
 
 .main-title {
@@ -177,6 +178,7 @@ svg {
 }
 
 .input {
+    font-family: var(--default-font);
     height: 20px;
 }
 
@@ -221,6 +223,11 @@ svg {
 
 .index-menu-item:hover {
     background-color: gray;
+}
+
+.search-input {
+    align-self: stretch;
+    height: 30px;
 }
 
 .search-input:focus-visible {
