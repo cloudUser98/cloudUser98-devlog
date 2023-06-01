@@ -1,6 +1,6 @@
 import study from "./modules/study";
 import renderPatterns from "./modules/render-patterns";
-import { createRouter, route } from "simple-githubpages-spa-router";
+import { createRouter } from "simple-githubpages-spa-router";
 
 // NOTES:
 // Literals: Constant values that are typed in the program as a part of the source code are called literals.
@@ -9,7 +9,7 @@ import { createRouter, route } from "simple-githubpages-spa-router";
 let router = createRouter([
     {path: "/study", pageRenderer: study},
     {path: "/render-patterns", pageRenderer: renderPatterns},
-],"/luis-escobedo");
+],"/cloudUser98-devlog");
 
 const systemThemeSwitch = document.getElementById("theme");
 const searchBar = document.getElementById("search-bar");

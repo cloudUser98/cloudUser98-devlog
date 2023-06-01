@@ -22,7 +22,6 @@ function renderPatterns() {
             aplicar estilo y formato con CSS, cargar recursos externos como imágenes y vídeos, y 
             ejecutar acciones del lado del cliente como el código JavaScript."
         </p>
-        <img src="https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
         <h2 id="static-pages">Paginas estaticas</h2>
         <p>
             El primer patron de renderizado del que hablaremos es el patro de paginas estaticas.
@@ -35,7 +34,6 @@ function renderPatterns() {
             CSS y Javascript, este ultimo con el fin de agregarle interactivadad a los componetes
             del archivo HTML.
         </p>
-        <img src="https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
         <p>
             Un ejemplo del uso de esta estrategia de renderizado puede ser la página de inicio de
             este sitio web. La pagina inicial existe como un archivo HTML en el servidor que almacena
@@ -53,7 +51,7 @@ function load_indexes() {
 
     __last_content_column!.innerHTML = `
         <ul class="index-menu">
-            <h3>Content table</h3>
+            <h4 class="menu-title">Content table</h4>
             <li class="index-menu-item">
                 <a class="hyperlink-container" href="#definition">
                     ¿Que es el renderizado?

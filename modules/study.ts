@@ -17,7 +17,7 @@ function load_indexes() {
 
     __last_content_column!.innerHTML = `
         <ul class="index-menu">
-            <h3>Content table</h3>
+            <h4 class="menu-title">Content table</h4>
             <li class="index-menu-item">
                 <a class="hyperlink-container" href="#/render-patterns">
                     Patrones de renderizado para paginas web
