@@ -13,7 +13,7 @@ function load_indexes$1() {
     console.log("loading indexes");
     __last_content_column$1.innerHTML = `
         <ul class="index-menu">
-            <h3>Content table</h3>
+            <h4 class="menu-title">Content table</h4>
             <li class="index-menu-item">
                 <a class="hyperlink-container" href="#/render-patterns">
                     Patrones de renderizado para paginas web
@@ -46,7 +46,6 @@ function renderPatterns() {
             aplicar estilo y formato con CSS, cargar recursos externos como imágenes y vídeos, y 
             ejecutar acciones del lado del cliente como el código JavaScript."
         </p>
-        <img src="https://images.pexels.com/photos/1591061/pexels-photo-1591061.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
         <h2 id="static-pages">Paginas estaticas</h2>
         <p>
             El primer patron de renderizado del que hablaremos es el patro de paginas estaticas.
@@ -59,7 +58,6 @@ function renderPatterns() {
             CSS y Javascript, este ultimo con el fin de agregarle interactivadad a los componetes
             del archivo HTML.
         </p>
-        <img src="https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
         <p>
             Un ejemplo del uso de esta estrategia de renderizado puede ser la página de inicio de
             este sitio web. La pagina inicial existe como un archivo HTML en el servidor que almacena
@@ -74,7 +72,7 @@ function load_indexes() {
     console.log("loading indexes");
     __last_content_column.innerHTML = `
         <ul class="index-menu">
-            <h3>Content table</h3>
+            <h4 class="menu-title">Content table</h4>
             <li class="index-menu-item">
                 <a class="hyperlink-container" href="#definition">
                     ¿Que es el renderizado?
@@ -89,26 +87,13 @@ function load_indexes() {
     `;
 }
 
-// Revisar porque esta ruta funciona aunque fisicamente este niveles arriba
-//fetch("./routerconfig.json") 
-//    .then(response => response.json())
-//    .then(object => {let test = object.DEFAULT_HOST_PATH})
-//
-// La idea de usar fetch esta deprecada pero seria interesante explorarla mas
-// a fondo
-//
 class baseRouter {
-    //listener = defaultListener;
     constructor() {
         this.parsedLocation = this.parseRequestedPath();
     }
-    // Need to check the difference between defining the value of the field
-    // with addWindowListener() and addWindowListener = function...
-    // because asaning the function value would not let me use "this"
     addWindowListener() {
-        console.log("adding the window listener");
         const browserWindow = window;
-        browserWindow.addEventListener("hashchange", this.listener);
+        browserWindow.addEventListener("popstate", this.listener);
     }
     getRequestedPath() {
         return window.location.search.replace("?", "");
@@ -119,18 +104,12 @@ class baseRouter {
         if (request) {
             paths = request.replace("/", " /").split(" ").slice(1);
         }
-        console.log("requested path: ", request, "paths: ", paths);
         return paths;
     }
 }
 class gpSpaRouter extends baseRouter {
-    // Example of route type object
-    // {path: "/", pageRenderer: () => window.location.pathname = router.DEFAULT_HOST_PATH + "/"},
-    // Note: optionals parameters go last always
     constructor(routes, hostPath, customListener) {
-        console.log("Creating the router class");
         super();
-        console.log(this.parsedLocation);
         if (customListener !== undefined) {
             this.listener = customListener;
         }
@@ -146,41 +125,22 @@ class gpSpaRouter extends baseRouter {
     checkForPaths() {
     }
     getRoute(path) {
-        console.log("get route path: ", path);
         return this.routes.find(route => route.path === path);
     }
-    /*
-        * Notes:
-        *
-        * - If a define the function with a variable (load_route = functio())
-        *   the "this" keyword would throw an error of implicity type Any
-        */
     load_route(route) {
         const { path, pageRenderer } = route;
-        // Change of the browsers path without reloading the page
-        //let location_paths = window.location.pathname;
-        //console.log("Paths before split: ", location_paths, location_paths.length);
-        //let paths_lol = location_paths.split("/");
-        //let paths = location_paths.split("/", 2);
-        //let url_start = "";
-        // paths[1] && url_start = "/";    why this does not work?
-        //paths[1] && (url_start = "/");
-        // let navigation_path = this.DEFAULT_HOST + "path";
         let pathToNavigate = path;
         if (this.DEFAULT_HOST_PATH !== undefined) {
             pathToNavigate = this.DEFAULT_HOST_PATH + path;
         }
-        window.history.pushState({}, "", pathToNavigate);
-        // Executing the method that renders the page
+        window.history.replaceState({}, "", pathToNavigate);
         return pageRenderer;
     }
     render(renderMethod) {
         renderMethod();
     }
     navigate(path) {
-        console.log("nvaigating to: ", path);
         if (path === "/") {
-            console.log("hello");
             this.returnHome();
             return;
         }
@@ -190,24 +150,18 @@ class gpSpaRouter extends baseRouter {
     }
     returnHome() {
         if (this.DEFAULT_HOST_PATH) {
-            console.log(window.location.pathname);
-            console.log(this.DEFAULT_HOST_PATH);
-            window.location.pathname = this.DEFAULT_HOST_PATH + "/";
+            window.location.replace(this.DEFAULT_HOST_PATH + "/");
         }
         else {
-            window.location.pathname = "";
+            window.location.replace("");
         }
     }
 }
-/*
-* Notes:
-* - I need to first create a new instance of the class with
-* new basicRouter(). Check why and what would be the difference if
-* i use new basicRouter; without the ()
-*/
 
+/*
+    * Main method for creating the Router object for the project
+*/
 function createRouter(routes, repoName, customListener) {
-    console.log("creating a route");
     return new gpSpaRouter(routes, repoName, customListener);
 }
 /*
@@ -215,14 +169,18 @@ function createRouter(routes, repoName, customListener) {
     * if there is no custom listener declared.
 */
 function defaultListener(routerInstance) {
-    let path = window.location.hash.replace("#", "");
-    console.log("catcech path: ", path);
-    if (path.includes("/"))
-        routerInstance.navigate(path);
+    const currentWindowLocation = window.location;
+    // Checking if the path was pushed as a hashed path: "#/path"
+    const hashPath = currentWindowLocation.hash.replace("#/", "/");
+    // Checking if the path was pushed as a normal path: "/path"
+    const path = currentWindowLocation.pathname.replace(routerInstance.DEFAULT_HOST_PATH, "");
+    const navigationPath = hashPath || path;
+    console.log(navigationPath);
+    routerInstance.navigate(navigationPath);
 }
 
 // NOTES:
-// Literlas: Constant values that are typed in the program as a part of the source code are called literals.
+// Literals: Constant values that are typed in the program as a part of the source code are called literals.
 // Literals can be of any of the basic data types and can be divided into Integer Numerals, Floating-Point Numerals, Characters, Strings, and Boolean Values.
 // Again, literals are treated just like regular variables except that their values cannot be modified after their definition.
 createRouter([
@@ -230,6 +188,12 @@ createRouter([
     { path: "/render-patterns", pageRenderer: renderPatterns },
 ], "/cloudUser98-devlog");
 const systemThemeSwitch = document.getElementById("theme");
+const searchBar = document.getElementById("search-bar");
+window.onkeyup = (event) => {
+    if (event.key == "/") {
+        searchBar === null || searchBar === void 0 ? void 0 : searchBar.focus({ preventScroll: false });
+    }
+};
 function setDarkTheme(ROOT_PSEUDOCLASS) {
     ROOT_PSEUDOCLASS.style.setProperty("--main-bg-color", "var(--bg-dark");
     ROOT_PSEUDOCLASS.style.setProperty("--secondary-color", "var(--secondary-dark");
