@@ -10,8 +10,8 @@
 
     /* Light theme color values */
     --bg-light: #fefefe;
-    --secondary-light: #4e606c;
-    --complementary-light: #c4d6ea;
+    --secondary-light: #353535;
+    --complementary-light: #303030;
     --font-light: #080909;
 
     /* Dark theme color values */
@@ -75,11 +75,16 @@ body {
 }
 
 h1 {
-    font-size: 42px;
+    font-size: 37px;
 }
 
-h1 {
-    font-size: 28px;
+h2::after {
+    content: ' #';
+    display: none;
+}
+
+h2:hover::after {
+    display: inline;
 }
 
 p {
@@ -118,7 +123,7 @@ svg {
 
 .end-column {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: end;
 }
 
 .start-column {
@@ -144,6 +149,13 @@ svg {
     background-color: var(--secondary-color);
     word-wrap: break-word;
     height: 50px;
+    padding: 0px 15px 0px 15px;
+    border-bottom: 1px solid var(--font-color);
+}
+
+.header-title {
+    margin-block-start: unset;
+    margin-block-end: unset;
 }
 
 .header-content {
@@ -151,6 +163,7 @@ svg {
     align-items: center;
     background-color: var(--complementary-color);
     height: 25px;
+    border-bottom: 1px solid var(--font-color);
 }
 
 .main-title {
@@ -160,6 +173,8 @@ svg {
 
 .links {
     padding-inline-start: unset;
+    margin-block-start: unset;
+    margin-block-end: unset;
     list-style-type: none;
     display: flex;
     flex-direction: row;
@@ -174,7 +189,11 @@ svg {
     color: unset;
     font-size: 16px;
     /* padding-left: 20px; */
-    white-space: nowrap;
+    /* 
+     * Checar por que la siguiente opcion interfiere con el word-wrap de la
+     * clase dropdown-menu-option
+     * white-space: nowrap;
+    */
 }
 
 .hyperlink:hover {
@@ -188,24 +207,39 @@ svg {
 }
 
 .dropdown {
-    text-align: center;
+    position: relative;
 }
 
 .dropdown-menu {
-    display: none;
+    display: block;
+    text-align: center;
+    padding: 5px;
+    width: 250px;
+    border-radius: 7px;
+    visibility: hidden;
+    opacity: 0;
+    margin-top: 5px;
     position: absolute;
+    background-color: #476E9E;
+    -webkit-transition: all .4s ease-out;
+    left: calc(50% - 125px);
+    transition: all .4s ease-out;
 }
 
 .dropdown-menu-option {
-    display: block;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
+    word-wrap: break-word;
+    /* Ver porque usando un <a> para esta clase no funciona, y set tuvo que usar
+     * un <div>
+    */
+    max-width: 100%;
 }
 
 .dropdown-menu-option:hover {
-    background: gray;
+}
+
+.dropdown:hover .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
 }
 
 .index-menu {
@@ -220,7 +254,7 @@ svg {
     font-size: 16px;
     text-align: center;
     padding: 5px 10px 5px 10px;
-    border-top: 2px solid var(--font-color);
+    border-top: 1px solid var(--font-color);
 }
 
 .index-menu-item:hover {

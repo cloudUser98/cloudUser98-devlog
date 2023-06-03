@@ -13,8 +13,10 @@ function renderPatterns() {
         <p>
             Primero empezaremos por definir el termino de renderizado de paginas web.
         </P>
-        <h2 id="definition">¿Que es un patron de renderizado?</h2>
-        <h3> Segun aritmetrics.com: </h3>
+        <a class="hyperlink-container" href="#definition">
+            <h2 id="definition">¿Que es un patron de renderizado?</h2>
+        </a>
+        <h4> Segun aritmetrics.com: </h3>
         <p> 
             "El renderizado web, o renderización de páginas web, es el proceso de mostrar contenido
             web en un navegador web como Google Chrome o Firefox. Implica descargar páginas web de
@@ -22,7 +24,9 @@ function renderPatterns() {
             aplicar estilo y formato con CSS, cargar recursos externos como imágenes y vídeos, y 
             ejecutar acciones del lado del cliente como el código JavaScript."
         </p>
-        <h2 id="static-pages">Paginas estaticas</h2>
+        <a class="hyperlink-container" href="#static-pages">
+            <h2 id="static-pages">Paginas estaticas</h2>
+        </a>
         <p>
             El primer patron de renderizado del que hablaremos es el patro de paginas estaticas.
             Este es el patron mas simple y consiste en el envio de archivos estaticos por parte
