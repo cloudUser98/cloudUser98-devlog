@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 /* The root pseudoclass is the root element of the <html> element */
 :root {
@@ -183,6 +184,25 @@ img {
     background-color: rgba(255, 255, 255, 60%);
 }
 
+.header a {
+    font-family: 'Noto Sans Mono';
+    font-size: 14px;
+    color: black;
+    /* The next lines are for the effect
+    font-weight: 900;
+    background-color: rgb(131 153 155 / 70%);
+    color: transparent;
+    text-shadow: 2px 2px 3px rgb(255 255 255 / 79%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    */
+}
+
+.header svg {
+    width: 36px;
+    height: 36px;
+}
+
 .header-title {
     display: none;
     margin-block-start: unset;
@@ -198,7 +218,7 @@ img {
 }
 
 .main-title {
-    font-size: 56px;
+    font-size: 72px;
     font-weight: bold;
     text-align: start;
     margin: unset;
@@ -299,6 +319,10 @@ img {
     flex-grow: 2;
 }
 
+.links a {
+    display: block;
+}
+
 .hyperlink {
     text-decoration: unset;
     color: unset;
@@ -325,15 +349,34 @@ img {
     position: relative;
 }
 
+.dropdown a {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown span {
+    margin-right: 5px;
+}
+
+.dropdown-arrow {
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transition: .5s;
+}
+
 .dropdown-menu {
     display: block;
     text-align: center;
-    padding: 5px;
+    /*padding: 5px;*/
     width: 250px;
     border-radius: 7px;
     visibility: hidden;
     opacity: 0;
-    margin-top: 5px;
+    /*margin-top: var(--header-height);*/
     position: absolute;
     background-color: #476E9E;
     -webkit-transition: all .4s ease-out;
@@ -349,10 +392,13 @@ img {
     max-width: 100%;
 }
 
-.dropdown-menu-option:hover {
+.dropdown:hover .dropdown-arrow {
+    margin-top: 10px;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
 }
 
-.dropdown:hover .dropdown-menu {
+.dropdown:hover > .dropdown-menu {
     visibility: visible;
     opacity: 1;
 }
