@@ -1,18 +1,35 @@
-const content = document.getElementById("content");
-const __last_content_column = document.getElementById("last-content-column");
+const layout = document.getElementById("layout");
 
 function study() {
-    content!.innerHTML = `
-        <h1>Temas de estudio</h1>
-        <p>
-            Aqui iran todos los temas de estudio que estoy tomando por el momento.
-        </p>
+    layout!.innerHTML = `
+        <div class="flex-column">
+            WIP
+        </div>
+        <div id="content" class="flex-column main-column">
+            <h1 class="main-title">Temas de estudio</h1>
+            <p>
+                Aqui iran todos los temas de estudio que estoy tomando por el momento.
+            </p>
+        </div>
+        <div id="last-content-column" class="flex-column">
+            <ul class="index-menu">
+                <h4 class="menu-title"> Contenido </h4>
+                <li class="index-menu-item">
+                    <a class="hyperlink-container" href="#about-me">
+                        Sobre mi
+                    </a>
+                </li>
+            </ul>
+        </div>
+
     `
 
-    load_indexes();
+    const __last_content_column = document.getElementById("last-content-column");
+
+    load_indexes(__last_content_column);
 };
 
-function load_indexes() {
+function load_indexes(__last_content_column: HTMLElement | null) {
     console.log("loading indexes");
 
     __last_content_column!.innerHTML = `
