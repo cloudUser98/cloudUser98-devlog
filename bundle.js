@@ -1,17 +1,33 @@
-const content$1 = document.getElementById("content");
-const __last_content_column$1 = document.getElementById("last-content-column");
+const layout = document.getElementById("layout");
 function study() {
-    content$1.innerHTML = `
-        <h1>Temas de estudio</h1>
-        <p>
-            Aqui iran todos los temas de estudio que estoy tomando por el momento.
-        </p>
+    layout.innerHTML = `
+        <div class="flex-column">
+            WIP
+        </div>
+        <div id="content" class="flex-column main-column">
+            <h1 class="main-title">Temas de estudio</h1>
+            <p>
+                Aqui iran todos los temas de estudio que estoy tomando por el momento.
+            </p>
+        </div>
+        <div id="last-content-column" class="flex-column">
+            <ul class="index-menu">
+                <h4 class="menu-title"> Contenido </h4>
+                <li class="index-menu-item">
+                    <a class="hyperlink-container" href="#about-me">
+                        Sobre mi
+                    </a>
+                </li>
+            </ul>
+        </div>
+
     `;
-    load_indexes$1();
+    const __last_content_column = document.getElementById("last-content-column");
+    load_indexes$1(__last_content_column);
 }
-function load_indexes$1() {
+function load_indexes$1(__last_content_column) {
     console.log("loading indexes");
-    __last_content_column$1.innerHTML = `
+    __last_content_column.innerHTML = `
         <ul class="index-menu">
             <h4 class="menu-title">Content table</h4>
             <li class="index-menu-item">
@@ -37,8 +53,10 @@ function renderPatterns() {
         <p>
             Primero empezaremos por definir el termino de renderizado de paginas web.
         </P>
-        <h2 id="definition">¿Que es un patron de renderizado?</h2>
-        <h3> Segun aritmetrics.com: </h3>
+        <a class="hyperlink-container" href="#definition">
+            <h2 id="definition">¿Que es un patron de renderizado?</h2>
+        </a>
+        <h4> Segun aritmetrics.com: </h3>
         <p> 
             "El renderizado web, o renderización de páginas web, es el proceso de mostrar contenido
             web en un navegador web como Google Chrome o Firefox. Implica descargar páginas web de
@@ -46,7 +64,9 @@ function renderPatterns() {
             aplicar estilo y formato con CSS, cargar recursos externos como imágenes y vídeos, y 
             ejecutar acciones del lado del cliente como el código JavaScript."
         </p>
-        <h2 id="static-pages">Paginas estaticas</h2>
+        <a class="hyperlink-container" href="#static-pages">
+            <h2 id="static-pages">Paginas estaticas</h2>
+        </a>
         <p>
             El primer patron de renderizado del que hablaremos es el patro de paginas estaticas.
             Este es el patron mas simple y consiste en el envio de archivos estaticos por parte
@@ -186,7 +206,7 @@ function defaultListener(routerInstance) {
 createRouter([
     { path: "/study", pageRenderer: study },
     { path: "/render-patterns", pageRenderer: renderPatterns },
-], "/cloudUser98-devlog");
+]);
 const systemThemeSwitch = document.getElementById("theme");
 const searchBar = document.getElementById("search-bar");
 window.onkeyup = (event) => {

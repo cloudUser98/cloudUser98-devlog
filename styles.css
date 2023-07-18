@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
 /* The root pseudoclass is the root element of the <html> element */
 :root {
@@ -10,8 +8,8 @@
 
     /* Light theme color values */
     --bg-light: #fefefe;
-    --secondary-light: #4e606c;
-    --complementary-light: #c4d6ea;
+    --secondary-light: #353535;
+    --complementary-light: #303030;
     --font-light: #080909;
 
     /* Dark theme color values */
@@ -22,6 +20,9 @@
 
     font-family: var(--default-font), sans-serif;
     font-size: 20px;
+
+    /* Fixed values */
+    --header-height: 50px;
 
 }
 
@@ -75,11 +76,16 @@ body {
 }
 
 h1 {
-    font-size: 42px;
+    font-size: 37px;
 }
 
-h1 {
-    font-size: 28px;
+h2::after {
+    content: ' #';
+    display: none;
+}
+
+h2:hover::after {
+    display: inline;
 }
 
 p {
@@ -92,6 +98,10 @@ code {
     font-family: JetBrains Mono;
 }
 
+img {
+    height: 500px;
+}
+
 .hyperlink-container {
     text-decoration: unset;
     color: unset;
@@ -99,7 +109,19 @@ code {
     justify-content: center;
 }
 
-svg {
+.section {
+    display: flex;
+    box-sizing: border-box;
+    padding-top: var(--header-height);
+    height: 100vh;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    max-height: calc(100% - 5vh);
+    margin-bottom: 5vh;
 }
 
 .flex-column {
@@ -110,15 +132,23 @@ svg {
     padding: 30px;
 }
 
+.align-start {
+    align-items: start;
+}
+
 .main-column {
     align-self: stretch;
     /*justify-content: center;*/
     flex: 2;
 }
 
+.padding-x {
+    padding: 0 18vh 0 18vh;
+}
+
 .end-column {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: end;
 }
 
 .start-column {
@@ -136,30 +166,130 @@ svg {
 }
 
 .header {
+    box-sizing: border-box;
+    position: fixed;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: start; 
     align-items: center;
-    background-color: var(--secondary-color);
     word-wrap: break-word;
-    height: 50px;
+    height: var(--header-height);
+    width: 100%;
+    padding: 0px 15px 0px 15px;
+    border-radius: 0 0 5px 5px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 4px 0px;
+    backdrop-filter: saturate(180%) blur(60px);
+    background-color: rgba(255, 255, 255, 60%);
+}
+
+.header-title {
+    display: none;
+    margin-block-start: unset;
+    margin-block-end: unset;
 }
 
 .header-content {
-    display: flex;
+    display: none;
     align-items: center;
     background-color: var(--complementary-color);
     height: 25px;
+    border-bottom: 1px solid var(--font-color);
 }
 
 .main-title {
+    font-size: 56px;
     font-weight: bold;
     text-align: start;
+    margin: unset;
+}
+
+.sub-main-title {
+    font-weight: 100;
+    text-align: start;
+    margin: unset;
+}
+
+@keyframes typing {
+  0.0000%, 27.3488% { content: ""; }
+  1.1395%, 26.2093% { content: "p"; }
+  2.2791%, 25.0698% { content: "pr"; }
+  3.4186%, 23.9302% { content: "pro"; }
+  4.5581%, 22.7907% { content: "prog"; }
+  5.6977%, 21.6512% { content: "proga"; }
+  6.8372%, 20.5116% { content: "progam"; }
+  7.9767%, 19.3721% { content: "progama"; }
+  9.1163%, 18.2326% { content: "progamar"; }
+
+  30.7674%, 51.2791% { content: ""; }
+  31.9070%, 50.1395% { content: "i"; }
+  33.0465%, 49.0000% { content: "in"; }
+  34.1860%, 47.8605% { content: "ino"; }
+  35.3256%, 46.7209% { content: "inov"; }
+  36.4651%, 45.5814% { content: "inova"; }
+  37.6047%, 44.4419% { content: "inovar"; }
+
+  54.6977%, 75.2093% { content: ""; }
+  55.8372%, 74.0698% { content: "a"; }
+  56.9767%, 72.9302% { content: "ap"; }
+  58.1163%, 71.7907% { content: "apr"; }
+  59.2558%, 70.6512% { content: "apre"; }
+  60.3953%, 69.5116% { content: "apren"; }
+  61.5349%, 68.3721% { content: "aprend"; }
+  61.5349%, 68.3721% { content: "aprende"; }
+  61.5349%, 68.3721% { content: "aprender"; }
+
+  78.6279%, 96.8605% { content: ""; }
+  79.7674%, 95.7209% { content: "a"; }
+  80.9070%, 94.5814% { content: "ay"; }
+  82.0465%, 93.4419% { content: "ayu"; }
+  83.1860%, 92.3023% { content: "ayud"; }
+  84.3256%, 91.1628% { content: "ayuda"; }
+  84.3256%, 91.1628% { content: "ayudar"; }
+}
+
+@keyframes cursor-blink {
+    0% { 
+        opacity: 1; 
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+.about-typing-text::before {
+    content: "";
+    animation: typing 13.5s infinite;
+}
+
+@media (prefers-reduced-motion) {
+    .about-typing-text::before {
+        animation: none;
+    }
+
+    @keyframes sequencePopup {
+        0%, 100% { content: "desarrollar"; }
+        25% { content: "inovar"; }
+        50% { content: "emprender"; }
+        75% { content: "aprender"; }
+    }
+
+    .about-typing-text::before {
+        content: "desarrollar";
+        animation: sequencePopup 12s linear infinite;
+    }
+}
+
+.about-typing-text::after {
+    content: "";
+    border-right: .5vh solid black;
+    animation: cursor-blink 2s steps(1) infinite;
 }
 
 .links {
     padding-inline-start: unset;
+    margin-block-start: unset;
+    margin-block-end: unset;
     list-style-type: none;
     display: flex;
     flex-direction: row;
@@ -174,7 +304,11 @@ svg {
     color: unset;
     font-size: 16px;
     /* padding-left: 20px; */
-    white-space: nowrap;
+    /* 
+     * Checar por que la siguiente opcion interfiere con el word-wrap de la
+     * clase dropdown-menu-option
+     * white-space: nowrap;
+    */
 }
 
 .hyperlink:hover {
@@ -188,24 +322,39 @@ svg {
 }
 
 .dropdown {
-    text-align: center;
+    position: relative;
 }
 
 .dropdown-menu {
-    display: none;
+    display: block;
+    text-align: center;
+    padding: 5px;
+    width: 250px;
+    border-radius: 7px;
+    visibility: hidden;
+    opacity: 0;
+    margin-top: 5px;
     position: absolute;
+    background-color: #476E9E;
+    -webkit-transition: all .4s ease-out;
+    left: calc(50% - 125px);
+    transition: all .4s ease-out;
 }
 
 .dropdown-menu-option {
-    display: block;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
+    word-wrap: break-word;
+    /* Ver porque usando un <a> para esta clase no funciona, y set tuvo que usar
+     * un <div>
+    */
+    max-width: 100%;
 }
 
 .dropdown-menu-option:hover {
-    background: gray;
+}
+
+.dropdown:hover .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
 }
 
 .index-menu {
@@ -220,7 +369,7 @@ svg {
     font-size: 16px;
     text-align: center;
     padding: 5px 10px 5px 10px;
-    border-top: 2px solid var(--font-color);
+    border-top: 1px solid var(--font-color);
 }
 
 .index-menu-item:hover {
