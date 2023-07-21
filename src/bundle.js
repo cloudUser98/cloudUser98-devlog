@@ -1,3 +1,4 @@
+"use strict";
 const layout = document.getElementById("layout");
 function study() {
     layout.innerHTML = `
@@ -38,7 +39,6 @@ function load_indexes$1(__last_content_column) {
         </ul>
     `;
 }
-
 const content = document.getElementById("content");
 const __last_content_column = document.getElementById("last-content-column");
 function renderPatterns() {
@@ -106,7 +106,6 @@ function load_indexes() {
         </ul>
     `;
 }
-
 class baseRouter {
     constructor() {
         this.parsedLocation = this.parseRequestedPath();
@@ -177,7 +176,6 @@ class gpSpaRouter extends baseRouter {
         }
     }
 }
-
 /*
     * Main method for creating the Router object for the project
 */
@@ -198,7 +196,6 @@ function defaultListener(routerInstance) {
     console.log(navigationPath);
     routerInstance.navigate(navigationPath);
 }
-
 var theme = false;
 // NOTES:
 // Literals: Constant values that are typed in the program as a part of the source code are called literals.
@@ -227,7 +224,7 @@ function setLightTheme(ROOT_PSEUDOCLASS) {
     ROOT_PSEUDOCLASS.style.setProperty("--complementary-color", "var(--complementary-light");
     ROOT_PSEUDOCLASS.style.setProperty("--font-color", "var(--font-light");
 }
-function changeRootCustomProperties() {
+function changeRootCustomProperties(e) {
     theme = !theme;
     // Getting the root pseudoclass element
     const ROOT_PSEUDOCLASS = document.querySelector(":root");
