@@ -1,4 +1,7 @@
 node_modules/
 env/
+package-lock.json
+src/
 luis-escobedo/
 server.js
+bundle.js
